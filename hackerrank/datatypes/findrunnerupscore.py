@@ -36,3 +36,17 @@ if __name__ == '__main__':
     setarr.remove(max(setarr))
 
     print(max(setarr))
+
+#-------------Alternative----------
+#This solution is found to be the most efficient in terms of complexity
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    
+    arr = list(arr)
+    arr.sort(reverse = True)
+    largestNum = arr[0]
+    for i in range(n):
+        if(arr[i] < largestNum):
+            print(arr[i])
+            break
