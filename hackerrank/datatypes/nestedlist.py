@@ -34,3 +34,17 @@ if __name__ == '__main__':
 
     namearr.sort()
     [print(x) for x in namearr]
+
+#----------Alternative------------
+    # Get the input array from the range of input in the for loop
+    arrgrade = [[input(), float(input())] for _ in range(int(input()))]
+    
+    #[marks for name, marks in marksheet] - get all marks from list
+    #set([marks for name, marks in marksheet]) - getting unique marks
+    #sorting the result in decending order with reverse=True and getting the value      as first index which would be the second largest.
+    b = sorted(set([marks for name, marks in arrgrade]))[1]
+    
+    #This works also
+    #b = sorted(list(set([marks for name, marks in arrgrade])))[1]
+    
+    print('\n'.join(sorted([a for a, c in arrgrade if b == c])))
