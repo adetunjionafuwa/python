@@ -21,3 +21,19 @@ def sockMerchant(n, ar):
         pair += dictcolor[i] // 2
 
     return pair
+
+#======Alternative=======
+def sockMerchant(n, ar):
+    arset = set(ar)
+    counter = 0
+    pair = 0
+
+    for i in arset:
+        for j in ar:
+            if i == j:
+                counter += 1
+        
+        pair += counter // 2
+        counter = 0
+    
+    return pair
