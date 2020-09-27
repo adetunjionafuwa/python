@@ -121,10 +121,19 @@ class LinkedList:
 			node = node.next
 
 	def remove(self, position):
-		pass
+		if position < 0 or position > self.len():
+			raise Exception('Unreachable index')
+
+		counter = 0
+		node = self.head
+
+		while node.next is not None and counter <= position:
+			pass
+
 		
 
 ll = LinkedList([1,2,3,4,5])
 # ll = LinkedList()
-ll.insert(1, 99)
+# ll.insert(1, 99)
+ll.remove(1)
 print(ll)
