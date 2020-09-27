@@ -67,3 +67,57 @@ class LinkedList:
 			counter += 1
 			
 		raise Exception('Invalid position found')
+		
+	def count(self, data):
+		counter = 0
+		node  = self.head
+
+		while node:
+			if node.data == data:
+				counter += 1
+			node = node.next
+		if counter == 0:
+			raise Exception('Data not found')
+		return counter
+
+	def append_first(self, node):
+		node = Node(node)
+		node.next = self.head
+		self.head = node
+
+	def append_last(self, data):
+		data = Node(data)
+		if self.head is None:
+			self.head = data
+			return
+		node = self.head
+		while node.next is not None:
+			node = node.next
+		node.next = data
+		
+
+	def insert(self, position, data):
+		counter = 1
+		data = Node(data)
+
+		if self.head is None and position == 0:
+			self.head = data
+			return
+
+		if position < 0 or position > self.len():
+			raise Exception('Unreachable index')
+
+		if self.head is None and position > 0:
+			raise Exception('Empty node, invalid starter index')
+
+		node = self.head
+		while node is not None:
+			if counter == position:
+				temp_node = node.next
+				node.next = data
+				data.next = temp_node
+			counter += 1
+			node = node.next
+
+	def remove(self, position):
+		pass
