@@ -100,15 +100,16 @@ class LinkedList:
 		counter = 1
 		data = Node(data)
 
-		if self.head is None and position == 0:
-			self.head = data
-			return
-
 		if position < 0 or position > self.len():
 			raise Exception('Unreachable index')
 
 		if self.head is None and position > 0:
 			raise Exception('Empty node, invalid starter index')
+		
+		if self.head is None or position == 0:
+			data.next = self.head
+			self.head = data
+			return
 
 		node = self.head
 		while node is not None:
@@ -121,3 +122,9 @@ class LinkedList:
 
 	def remove(self, position):
 		pass
+		
+
+ll = LinkedList([1,2,3,4,5])
+# ll = LinkedList()
+ll.insert(1, 99)
+print(ll)
