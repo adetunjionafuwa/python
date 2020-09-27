@@ -32,3 +32,38 @@ class LinkedList:
 		nodes.append('None')
 
 		return '->'.join(nodes)
+
+	def len(self):
+		counter = 0
+		node = self.head
+		while node is not None:
+			counter += 1
+			node = node.next
+		return counter
+
+	def get_data_index(self, data):
+		node = self.head
+		counter = 0
+		try:
+			while node.data != data:
+				counter += 1
+				node = node.next
+		except:
+			raise Exception('Data not found')
+		return counter
+
+	def get_position(self, position):
+		if position < 0:
+			raise Exception('Invalid position found')
+
+		counter  = 0
+		node = self.head
+
+		#bound loop in length of position
+		while node is not None and counter<= position:
+			if position == counter:
+				return node.data
+			node = node.next
+			counter += 1
+			
+		raise Exception('Invalid position found')
